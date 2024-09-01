@@ -1,0 +1,88 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.mat-grid-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.poke-card {
+  position: relative;
+  width: 100%;
+  padding: 30px 20px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.poke-card:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.poke-card img {
+  display: block;
+  width: 180px;
+  max-height: 200px;
+  margin: 20px auto;
+}
+
+.hp {
+  width: 80px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 30px;
+  margin-left: auto;
+  font-weight: 400;
+}
+
+.poke-name {
+  font-weight: 600;
+}
+
+.types {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.types span {
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: #ffffff;
+  margin: 0 5px;
+  font-weight: 600;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.stats div {
+  flex: 1;
+}
+
+.stats h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.stats p {
+  color: #404060;
+}

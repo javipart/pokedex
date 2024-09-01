@@ -1,0 +1,21 @@
+<mat-card class="poke-card" [ngStyle]="{'background': getBackground(selectedPokemon)}">
+  <p class="hp">
+    <span># {{ selectedPokemon.id }}</span>
+  </p>
+  <img [src]="selectedPokemon.sprites.other.dream_world.front_default" alt="{{ selectedPokemon.name }}" />
+  <h2 class="poke-name">{{ selectedPokemon.name | titlecase }}</h2>
+  <div class="types">
+    <span *ngFor="let type of selectedPokemon.types" [ngStyle]="{'background': getBackgroundType(type.type.name)}">{{
+      type.type.name }}</span>
+  </div>
+  <div class="stats">
+    <div>
+      <h3>{{ selectedPokemon.weight }}</h3>
+      <p>Peso</p>
+    </div>
+    <div>
+      <h3>{{ selectedPokemon.height }}</h3>
+      <p>Altura</p>
+    </div>
+  </div>
+</mat-card>

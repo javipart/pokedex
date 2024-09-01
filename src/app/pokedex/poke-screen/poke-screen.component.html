@@ -1,0 +1,29 @@
+<div class="poke-screen">
+  <div class="pokedex-filter">
+    <form (ngSubmit)="onSearch()" class="pokedex-search">
+      <mat-form-field>
+        <mat-label>Número</mat-label>
+        <input matInput [(ngModel)]="searchValue" name="search" type="number">
+        <button matSuffix mat-icon-button type="submit" *ngIf="totalPokemons > 1" [disabled]="!searchValue">
+          <mat-icon>search</mat-icon>
+        </button>
+        <button matSuffix mat-icon-button *ngIf="totalPokemons == 1" (click)="clearSearch()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+    <mat-paginator *ngIf="totalPokemons > 1" [length]="totalPokemons" [pageSize]="pageSize" (page)="onPageChange($event)" aria-label="Select page">
+    </mat-paginator>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <div *ngIf="!isLoading" class="pokedex-list">
+    <mat-grid-list [cols]="cols" rowHeight="650px" gutterSize="16px">
+      <mat-grid-tile *ngFor="let pokemon of pokemonList">
+        <app-poke-description [selectedPokemon]="pokemon"></app-poke-description>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

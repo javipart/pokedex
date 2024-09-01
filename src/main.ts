@@ -1,8 +1,18 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication, provideClientHydration } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
+import { provideRouter } from '@angular/router';
+import { APP_ROUTES } from './app/app-routing.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-import { AppModule } from './app/app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  ngZoneEventCoalescing: true
-})
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(APP_ROUTES),
+    provideAnimations(),
+    provideClientHydration(),
+    provideHttpClient(),
+    MatNativeDateModule, provideAnimationsAsync()
+  ]
+});
