@@ -1,16 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterModule.forRoot([])
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [AppComponent, RouterTestingModule],
     }).compileComponents();
   });
 
@@ -26,10 +22,17 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('my-first-pokedex');
   });
 
-  it('should render title', () => {
+  it('should render navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, my-first-pokedex');
+    expect(compiled.querySelector('app-navbar')).not.toBeNull();
+  });
+
+  it('should contain router outlet', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });
